@@ -1,0 +1,20 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+
+      <a class="nav-item nav-link" href="{% url 'login' %}">Admin</a>
+      <a class="nav-item nav-link" href="{% url 'manager_login' %}">Manager</a>
+        <a class="nav-item nav-link" href="{% url 'applicant-login' %}">Applicant</a>
+        <a class="nav-item nav-link" href="{% url 'interview_login' %}">Interviewer</a>
+        <a class="nav-item nav-link" href="{% url 'hr_login' %}">HRhead</a>
+
+
+    </div>
+  </div>
+</nav>

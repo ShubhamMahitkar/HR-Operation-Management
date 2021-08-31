@@ -1,0 +1,52 @@
+
+{% load static %}
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+<body>
+
+    {% if request.session.status %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						Admin Successfully login
+					</span>
+				</div>
+
+<table align="center" border="0" >
+
+    <tr>
+        <th><a href="{% url 'addemp' %}"> ADD EMPLOYEE </a></th>
+    </tr>
+    <tr>
+        <th><a href="{% url 'viewemp' %}"> VIEW EMPLOYEE </a></th>
+    </tr>
+    <tr>
+        <th><a href="{% url 'updateemp' %}"> UPDATE EMPLOYEE </a></th>
+    </tr>
+    <tr>
+        <th><a href="{% url 'deleteemp' %}"> DELETE EMPLOYEE </a></th>
+    </tr>
+    <tr><th>
+                    <div class="container-login100-form-btn">
+                        <a href="{% url 'logout' %}">
+						<button class="login100-form-btn">
+							Logout
+						</button>
+                        </a>
+					</div>
+        </th>
+    </tr>
+
+</table>
+
+			</div>
+		</div>
+	</div>
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

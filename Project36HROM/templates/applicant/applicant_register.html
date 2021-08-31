@@ -1,0 +1,68 @@
+{% load static %}
+{% include 'index.html' %}
+{% include 'navbar2.html' %}
+
+
+{% if request.session.status %}
+<form method="post">
+                {% csrf_token %}
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %}); ">
+					<span class="login100-form-title-1">
+						Registration Form
+					</span>
+				</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input300">Name : {{ form.name }}</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Date of Birth : {{ form.dob }}(yyyy-mm-dd)</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Email ID : {{ form.email }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Gender : {{ form.gender }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Mobile No. : {{ form.mobile }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Address : {{ form.address }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Username : {{ form.uname }}</span>
+					</div>
+
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200" type="password">Password : {{ form.password }}</span>
+					</div>
+
+                    {{ form.errors }}
+
+					<div class="container-login100-form-btn" style="position: relative; left: 50px; up: 50px; ">
+						<button class="login100-form-btn" type="submit" name="button1" id="b1">
+							Register
+						</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</form>
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

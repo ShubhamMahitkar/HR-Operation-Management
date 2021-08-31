@@ -1,0 +1,59 @@
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+{% load static %}
+
+{% if request.session.status %}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						HR HEAD HOME PAGE
+					</span>
+                    </div>
+
+<table align="center">
+    <tr>
+        <th width="680"  style="text-align: center">
+            <a href="{% url 'shortlisted' %}">
+            VIEW SHORTLISTED APPLICANT
+                </a>
+        </th>
+
+    </tr>
+    <tr>
+        <th  style="text-align: center">
+            <a href="{% url 'selected' %}">
+            VIEW SELECTED APPLICANT
+                </a>
+        </th>
+
+    </tr>
+    <tr>
+        <th  style="text-align: center">
+            <a href="{% url 'rejected' %}">
+            VIEW REJECTED APPLICANT
+                </a>
+        </th>
+
+    </tr>
+    <tr>
+        <th>
+    <div class="container-login100-form-btn">
+                        <a href="{% url 'logout' %}">
+						<button class="login100-form-btn">
+							Logout
+						</button>
+                        </a>
+					</div>
+        </th>
+    </tr>
+</table>
+</div></div></div>
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

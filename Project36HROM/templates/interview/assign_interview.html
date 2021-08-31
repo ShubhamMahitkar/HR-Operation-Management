@@ -1,0 +1,51 @@
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+{% load static %}
+
+
+{% if request.session.status %}
+<form action="{% url 'save_interview' %}" method="post">
+    {% csrf_token %}
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						Assign an Interview for an Applicant
+					</span>
+				</div>
+
+                {% if data2 %}
+                    <h6>Interview Id : {{ data2.interviewid }}</h6><br>
+
+                    <h6>Interviewer : {{ data2.interviewer }}</h6><br>
+
+                    <h6>Scheduled Timestamp : {{ data2.schedule }}</h6><br>
+
+                    <h6>Application Id : {{ data2.applicationid }} {{ data }}</h6><br>
+
+                    <h6>Result :
+                        <select name="result">
+                            <option>Selected</option>
+                            <option>Rejected</option>
+                        </select></h6>
+
+
+                {% endif %}
+
+            <div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							ADD TO INTERVIEW SCHEDULE
+						</button>
+					</div>
+
+
+</div></div></div></form>
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

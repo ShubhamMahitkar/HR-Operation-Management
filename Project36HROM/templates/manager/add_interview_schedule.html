@@ -1,0 +1,52 @@
+{% include 'index.html' %}
+{% load static %}
+
+{% if request.session.status %}
+
+<form method="post" action="{% url 'save_interview_sch' %}">
+    {% csrf_token %}
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						ASSIGN AN INTERVIEW FOR AN APPLICANT
+					</span>
+
+
+
+{#                <h6> Applicant ID: {{ data }}</h6>#}
+{#                <br>#}
+{#                {% if data2 %}#}
+{#                <h6> Select Employee Id: {{ data2.emp_id }}</h6><br>#}
+{#                <h6> Add Schedule Date: {{ data2.sch_date }}</h6><br>#}
+{#                {% endif %}#}
+
+
+                    {% if data2 %}
+                        {{ data2.as_p }}
+                    {% endif %}
+
+
+
+
+                <div class="container-login100-form-btn" align="center">
+						<button class="login100-form-btn" type="submit">
+							Add to Interview Schedule
+						</button>
+                </div>
+            </div>
+
+        </div>
+        </div></div>
+</form>
+
+    {% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}
+
+

@@ -1,0 +1,88 @@
+{% include  'index.html'%}
+{% include 'navbar.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply</title>
+</head>
+<body>
+
+    {% if request.session.status %}
+    <form method="post" action="{% url 'apply' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+
+        <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %}); ">
+					<span class="login100-form-title-1">
+						Application Form
+					</span>
+                    <h4 style="background-color: whitesmoke">{% if message %}{{ message }}{% endif %}</h4>
+				</div>
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input300">Name : {{ form.name }}{{ form.errors }}</span>{{ form.errors }}
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Date of Birth : {{ form.dob }}{{ form.errors }}(yyyy-mm-dd)</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Email ID : {{ form.email }}{{ form.errors }}</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Gender : {{ form.gender }}{{ form.errors }}</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Mobile No. : {{ form.mobile }}{{ form.errors }}</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Address : {{ form.address }}</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Qualification : {{ form.qualification }}</span>{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Post : {{ form.post }}{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Percent : {{ form.percent }}{{ form.errors }}
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Resume : {{ form.resume }}</span>{{ form.errors }}
+					</div>
+
+                    {{ form.errors }}
+
+					<div class="container-login100-form-btn" style="position: relative; left: 50px; up: 50px; ">
+						<button class="login100-form-btn" type="submit" name="button1" id="b1">
+							Apply
+						</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+        </form>
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}
+
+    </body>
+</html>

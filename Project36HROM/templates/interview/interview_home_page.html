@@ -1,0 +1,41 @@
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+{% load static %}
+
+{% if request.session.status %}
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						Conducting And Preparing Final Selection List
+					</span>
+				</div>
+
+				<form action="{% url 'assign_interview' %}" method="post">
+                {% csrf_token %}
+
+                Select an Applicant Id:
+					<select name='apmodel'>
+                        {% for x in apmodel %}
+                            <option>{{ x.applicationid }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Get Details
+						</button>
+					</div>
+                    </form>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

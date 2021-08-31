@@ -1,0 +1,53 @@
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+{% load static %}
+
+
+{% if request.session.status %}
+<form method="post"  action="{% url 'add_interview_schedule' %}">
+    {% csrf_token %}
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						INTERVIEW SCHEDULE PAGE
+					</span>
+
+
+
+<div><h6 style="color: white">
+    GET AN APPLICANT TO ASSIGN INTERVIEW
+    </h6>
+</div>
+
+
+</div>Select An Application ID:
+
+            <select name='apmodel'>
+                {% for x in apmodel %}
+                <option>{{ x.applicationid}}</option>
+                {% endfor %}
+            </select>
+
+
+
+                <div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Get Details
+						</button>
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}
+

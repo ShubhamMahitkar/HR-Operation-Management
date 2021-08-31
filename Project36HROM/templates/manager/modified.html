@@ -1,0 +1,75 @@
+{% load static %}
+{% include 'index.html' %}
+{% include 'navbar.html' %}
+
+{% if request.session.status %}
+<form method="post" action="{% url 'modified' %}">
+                {% csrf_token %}
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						RECRUITMENT MODIFYING PAGE
+					</span>
+				</div>
+
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input300">Oportunity code :<input type="hidden" name="opc" value="{{ form.opcode }}" >{{ form.opcode }}</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Qualification :<input type="text" required name="n1" value="{{ form.quali }}" >{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Registration start date : <input type="text" name="n2" required value="{{ form.regstart }}">{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Age limit : <input type="number" required name="n3" value="{{ form.agelim }}">{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Registration last date : <input type="text" name="n4" required value="{{ form.lastdate }}">{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Department ID :<input type="number"  required name="n5" value="{{ form.deptid }}"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Number of position : <input type="number" required name="n6" value="{{ form.nofposn }}">{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Description : <input type="text" required name="n7" value="{{ form.desc }}">{{ form.errors }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Responsibilities :<input type="text" required name="n8" value="{{ form.resp }}">{{ form.errors }}</span>
+					</div>
+
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input200">Contact no. :<input type="number" required name="n9" value="{{ form.cont }}">{{ form.errors }}</span>
+					</div>
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="button1" id="b1">
+							UPDATE
+						</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</form>
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}

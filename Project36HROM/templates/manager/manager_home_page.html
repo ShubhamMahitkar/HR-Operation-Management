@@ -1,0 +1,42 @@
+{% load static %}
+    <title>HR-management</title>
+    {% include 'index.html' %}
+    {% include 'navbar.html' %}
+
+{% if request.session.status %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						Manager Home Page
+					</span>
+				</div>
+
+<table align="center" border="0" >
+
+    <tr>
+        <th><a href="{% url 'recruit' %}">RECRUITMENT </a></th>
+    </tr>
+    <tr>
+        <th><a href="{% url 'interview_schedule' %}"> INTERVIEW SCHEDULE </a></th>
+    </tr>
+
+</table>
+					<div class="container-login100-form-btn">
+                        <a href="{% url 'logout' %}">
+						<button class="login100-form-btn">
+							Logout
+						</button>
+                        </a>
+					</div>
+			</div>
+		</div>
+	</div>
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}
